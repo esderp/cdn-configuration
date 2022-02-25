@@ -14,10 +14,6 @@ on:
         required: false
         default: ''
         type: string
-      auto-merge:
-        description: 'Enable PR auto-merge'
-        required: false
-        type: boolean
 
 jobs:
   promote-beta-experimental-traffic:
@@ -26,6 +22,6 @@ jobs:
       channel-name: 'Beta/Experimental traffic'
       ts-file: 'promote-beta-experimental-traffic.ts'
       amp-version: ${{ github.event.inputs.amp-version }}
-      auto-merge: ${{ github.event.inputs.auto-merge }}
+      auto-merge: false
     secrets:
       access-token: ${{ secrets.ACCESS_TOKEN }}
